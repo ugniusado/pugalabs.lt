@@ -1,353 +1,252 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Puga Labs — Coming Soon</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <title>Puga Labs — Coming Soon</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+          *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+          body {
+                  min-height: 100vh;
+                  font-family: 'Poppins', sans-serif;
+                  color: #fff;
+                  background: linear-gradient(135deg, #0a0e2a 0%, #111845 40%, #1a1060 70%, #0d0a30 100%);
+                  display: flex;
+                  flex-direction: column;
+          }
 
-    body {
-      min-height: 100vh;
-      font-family: 'Poppins', sans-serif;
-      color: #fff;
-      background: linear-gradient(135deg, #0a0e2a 0%, #111845 40%, #1a1060 70%, #0d0a30 100%);
-      display: flex;
-      flex-direction: column;
-    }
+          /* ── TOP NAV ── */
+          header {
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  padding: 1.6rem 3rem;
+          }
+          .logo-wordmark {
+                  font-size: 1.4rem;
+                  font-weight: 800;
+                  letter-spacing: 4px;
+                  color: #fff;
+                  text-transform: uppercase;
+                  text-decoration: none;
+          }
+          .logo-wordmark span { color: #7c9fff; }
 
-    /* ── TOP NAV ── */
-    header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 1.6rem 3rem;
-    }
+          /* ── MAIN HERO ── */
+          main {
+                  flex: 1;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  padding: 2rem 1.5rem 3rem;
+          }
 
-    .logo-wrap {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      text-decoration: none;
-    }
+          /* Glowing framed card */
+          .card {
+                  position: relative;
+                  width: 100%;
+                  max-width: 720px;
+                  padding: 3.5rem 3rem;
+                  text-align: center;
+                  border-radius: 20px;
+                  background: rgba(255, 255, 255, 0.03);
+                  border: 1px solid rgba(124, 159, 255, 0.18);
+                  box-shadow:
+                            0 0 0 1px rgba(30, 60, 160, 0.3),
+                            0 0 40px rgba(80, 120, 255, 0.12),
+                            0 0 80px rgba(30, 60, 200, 0.08),
+                            inset 0 1px 0 rgba(255,255,255,0.07);
+          }
 
-    .logo-wrap img {
-      height: 38px;
-      width: auto;
-      filter: brightness(0) invert(1);
-    }
+          /* animated glow border */
+          .card::before {
+                  content: '';
+                  position: absolute;
+                  inset: -1px;
+                  border-radius: 21px;
+                  background: linear-gradient(135deg,
+                                                      rgba(44, 82, 200, 0.6) 0%,
+                                                      rgba(100, 140, 255, 0.15) 40%,
+                                                      rgba(140, 100, 255, 0.3) 70%,
+                                                      rgba(44, 82, 200, 0.6) 100%
+                                                    );
+                  z-index: -1;
+                  filter: blur(1px);
+          }
 
-    .logo-wordmark {
-      font-size: 1.15rem;
-      font-weight: 700;
-      letter-spacing: 2px;
-      color: #fff;
-      text-transform: uppercase;
-    }
+          /* ── BADGE ── */
+          .badge {
+                  display: inline-block;
+                  font-size: 0.7rem;
+                  font-weight: 600;
+                  letter-spacing: 3px;
+                  text-transform: uppercase;
+                  color: #7c9fff;
+                  background: rgba(124, 159, 255, 0.1);
+                  border: 1px solid rgba(124, 159, 255, 0.25);
+                  border-radius: 999px;
+                  padding: 0.3rem 1rem;
+                  margin-bottom: 1.8rem;
+          }
 
-    .logo-wordmark span {
-      color: #7c9fff;
-    }
+          /* ── HEADLINE ── */
+          h1 {
+                  font-size: clamp(2rem, 5vw, 3rem);
+                  font-weight: 800;
+                  line-height: 1.1;
+                  letter-spacing: -0.5px;
+                  margin-bottom: 0.9rem;
+                  background: linear-gradient(135deg, #ffffff 0%, #b8caff 100%);
+                  -webkit-background-clip: text;
+                  -webkit-text-fill-color: transparent;
+          }
 
-    nav a {
-      color: rgba(255,255,255,0.5);
-      text-decoration: none;
-      font-size: 0.8rem;
-      font-weight: 400;
-      letter-spacing: 1px;
-      transition: color 0.2s;
-    }
+          /* ── TAGLINE ── */
+          .tagline {
+                  font-size: 0.95rem;
+                  font-weight: 300;
+                  color: rgba(255,255,255,0.5);
+                  letter-spacing: 0.5px;
+                  margin-bottom: 2.8rem;
+                  line-height: 1.6;
+          }
 
-    nav a:hover { color: #fff; }
+          /* ── DIVIDER ── */
+          .divider {
+                  width: 48px;
+                  height: 2px;
+                  background: linear-gradient(90deg, #2c52c8, #7c9fff);
+                  border-radius: 2px;
+                  margin: 0 auto 2.8rem;
+          }
 
-    /* ── MAIN HERO ── */
-    main {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 2rem 1.5rem 3rem;
-    }
+          /* ── COUNTDOWN ── */
+          .countdown {
+                  display: flex;
+                  align-items: flex-start;
+                  justify-content: center;
+                  gap: 0;
+                  margin-bottom: 0;
+          }
+          .countdown-block {
+                  display: flex;
+                  flex-direction: column;
+                  align-items: center;
+                  min-width: 100px;
+          }
+          .countdown-number {
+                  font-size: clamp(2.8rem, 6vw, 4rem);
+                  font-weight: 700;
+                  line-height: 1;
+                  letter-spacing: -2px;
+                  background: linear-gradient(180deg, #ffffff 0%, #7c9fff 100%);
+                  -webkit-background-clip: text;
+                  -webkit-text-fill-color: transparent;
+                  font-variant-numeric: tabular-nums;
+          }
+          .countdown-label {
+                  font-size: 0.65rem;
+                  font-weight: 600;
+                  letter-spacing: 3px;
+                  text-transform: uppercase;
+                  color: rgba(255,255,255,0.35);
+                  margin-top: 0.5rem;
+          }
+          .countdown-sep {
+                  font-size: clamp(2rem, 5vw, 3rem);
+                  font-weight: 300;
+                  color: rgba(124, 159, 255, 0.4);
+                  padding: 0 0.25rem;
+                  line-height: 1;
+                  margin-top: 0.15rem;
+          }
 
-    /* Glowing framed card */
-    .card {
-      position: relative;
-      width: 100%;
-      max-width: 720px;
-      padding: 3.5rem 3rem;
-      text-align: center;
-      border-radius: 20px;
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(124, 159, 255, 0.18);
-      box-shadow:
-        0 0 0 1px rgba(30, 60, 160, 0.3),
-        0 0 40px rgba(80, 120, 255, 0.12),
-        0 0 80px rgba(30, 60, 200, 0.08),
-        inset 0 1px 0 rgba(255,255,255,0.07);
-    }
+          /* ── FOOTER ── */
+          footer {
+                  text-align: center;
+                  padding: 1.5rem;
+                  font-size: 0.72rem;
+                  color: rgba(255,255,255,0.2);
+                  letter-spacing: 1px;
+          }
+          footer a {
+                  color: rgba(255,255,255,0.3);
+                  text-decoration: none;
+          }
+          footer a:hover { color: rgba(255,255,255,0.6); }
 
-    /* animated glow border */
-    .card::before {
-      content: '';
-      position: absolute;
-      inset: -1px;
-      border-radius: 21px;
-      background: linear-gradient(135deg,
-        rgba(44, 82, 200, 0.6) 0%,
-        rgba(100, 140, 255, 0.15) 40%,
-        rgba(140, 100, 255, 0.3) 70%,
-        rgba(44, 82, 200, 0.6) 100%
-      );
-      z-index: -1;
-      filter: blur(1px);
-    }
+          @media (max-width: 560px) {
+                  header { padding: 1.2rem 1.5rem; }
+                  .card { padding: 2.5rem 1.5rem; }
+                  .countdown-block { min-width: 68px; }
+          }
+        </style>
+  </head>
+  <body>
 
-    /* ── BADGE ── */
-    .badge {
-      display: inline-block;
-      font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: #7c9fff;
-      background: rgba(124, 159, 255, 0.1);
-      border: 1px solid rgba(124, 159, 255, 0.25);
-      border-radius: 999px;
-      padding: 0.3rem 1rem;
-      margin-bottom: 1.8rem;
-    }
+      <header>
+            <a class="logo-wordmark" href="#">Puga<span>Labs</span></a>a>
+      </header>
+  
+    <main>
+          <div class="card">
+                  <div class="badge">We&rsquo;re almost ready</div>div>
+                  <h1>Launching Soon</h1>
+                <p class="tagline">Puga Labs: Premium supplements engineered for performance.<br>Something exciting is on its way.</p>p>
+                <div class="divider"></div>div>
+                <div class="countdown">
+                        <div class="countdown-block">
+                                  <span class="countdown-number" id="days">00</span>
+                                  <span class="countdown-label">Days</span>
+                        </div>div>
+                        <span class="countdown-sep">:</span>
+                        <div class="countdown-block">
+                                  <span class="countdown-number" id="hours">00</span>
+                                  <span class="countdown-label">Hours</span>
+                        </div>div>
+                        <span class="countdown-sep">:</span>
+                        <div class="countdown-block">
+                                  <span class="countdown-number" id="minutes">00</span>
+                                  <span class="countdown-label">Min</span>
+                        </div>div>
+                        <span class="countdown-sep">:</span>
+                        <div class="countdown-block">
+                                  <span class="countdown-number" id="seconds">00</span>
+                                  <span class="countdown-label">Sec</span>
+                        </div>div>
+                </div>div>
+          </div>div>
+    </main>
+  
+    <footer>
+          &copy; 2026 Puga Labs &nbsp;&bull;&nbsp;
+          <a href="https://pugalabs.lt">pugalabs.lt</a>a>
+          &nbsp;&bull;&nbsp;
+          <a href="mailto:audrius@pugalabs.lt">audrius@pugalabs.lt</a>a>
+    </footer>
 
-    /* ── HEADLINE ── */
-    h1 {
-      font-size: clamp(2rem, 5vw, 3rem);
-      font-weight: 800;
-      line-height: 1.1;
-      letter-spacing: -0.5px;
-      margin-bottom: 0.9rem;
-      background: linear-gradient(135deg, #ffffff 0%, #b8caff 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
+      <script>
+            var launch = new Date('2026-09-01T00:00:00').getTime();
+            function pad(n){ return String(n).padStart(2,'0'); }
+            function tick(){
+                    var diff = Math.max(0, launch - Date.now());
+                    document.getElementById('days').textContent    = pad(Math.floor(diff/86400000));
+                    document.getElementById('hours').textContent   = pad(Math.floor((diff%86400000)/3600000));
+                    document.getElementById('minutes').textContent = pad(Math.floor((diff%3600000)/60000));
+                    document.getElementById('seconds').textContent = pad(Math.floor((diff%60000)/1000));
+            }
+            tick(); setInterval(tick, 1000);
+      </script>
 
-    /* ── TAGLINE ── */
-    .tagline {
-      font-size: 0.95rem;
-      font-weight: 300;
-      color: rgba(255,255,255,0.5);
-      letter-spacing: 0.5px;
-      margin-bottom: 2.8rem;
-      line-height: 1.6;
-    }
-
-    /* ── DIVIDER ── */
-    .divider {
-      width: 48px;
-      height: 2px;
-      background: linear-gradient(90deg, #2c52c8, #7c9fff);
-      border-radius: 2px;
-      margin: 0 auto 2.8rem;
-    }
-
-    /* ── COUNTDOWN ── */
-    .countdown {
-      display: flex;
-      align-items: flex-start;
-      justify-content: center;
-      gap: 0;
-      margin-bottom: 3rem;
-    }
-
-    .countdown-block {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      min-width: 100px;
-    }
-
-    .countdown-number {
-      font-size: clamp(2.8rem, 6vw, 4rem);
-      font-weight: 700;
-      line-height: 1;
-      letter-spacing: -2px;
-      background: linear-gradient(180deg, #ffffff 0%, #7c9fff 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      font-variant-numeric: tabular-nums;
-    }
-
-    .countdown-label {
-      font-size: 0.65rem;
-      font-weight: 600;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.35);
-      margin-top: 0.5rem;
-    }
-
-    .countdown-sep {
-      font-size: clamp(2rem, 5vw, 3rem);
-      font-weight: 300;
-      color: rgba(124, 159, 255, 0.4);
-      padding: 0 0.25rem;
-      line-height: 1;
-      margin-top: 0.15rem;
-    }
-
-    /* ── FORM SECTION ── */
-    .form-section {
-      text-align: center;
-    }
-
-    .form-title {
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.4);
-      margin-bottom: 1rem;
-    }
-
-    .notify-form {
-      display: flex;
-      gap: 0;
-      border-radius: 10px;
-      overflow: hidden;
-      border: 1px solid rgba(124, 159, 255, 0.25);
-      background: rgba(255,255,255,0.04);
-      max-width: 420px;
-      margin: 0 auto;
-    }
-
-    .notify-form input {
-      flex: 1;
-      padding: 0.85rem 1.25rem;
-      background: transparent;
-      border: none;
-      color: #fff;
-      font-family: 'Poppins', sans-serif;
-      font-size: 0.9rem;
-      outline: none;
-    }
-
-    .notify-form input::placeholder { color: rgba(255,255,255,0.25); }
-
-    .notify-form button {
-      padding: 0.85rem 1.5rem;
-      background: linear-gradient(135deg, #2c52c8, #4a6fe0);
-      color: #fff;
-      font-family: 'Poppins', sans-serif;
-      font-weight: 600;
-      font-size: 0.85rem;
-      letter-spacing: 0.5px;
-      border: none;
-      cursor: pointer;
-      white-space: nowrap;
-      transition: opacity 0.2s;
-    }
-
-    .notify-form button:hover { opacity: 0.85; }
-
-    /* ── FOOTER ── */
-    footer {
-      text-align: center;
-      padding: 1.5rem;
-      font-size: 0.72rem;
-      color: rgba(255,255,255,0.2);
-      letter-spacing: 1px;
-    }
-
-    footer a {
-      color: rgba(255,255,255,0.3);
-      text-decoration: none;
-    }
-
-    footer a:hover { color: rgba(255,255,255,0.6); }
-
-    @media (max-width: 560px) {
-      header { padding: 1.2rem 1.5rem; }
-      .card { padding: 2.5rem 1.5rem; }
-      .countdown-block { min-width: 68px; }
-      .notify-form { flex-direction: column; border-radius: 10px; }
-      .notify-form button { border-radius: 0 0 9px 9px; }
-    }
-  </style>
-</head>
-<body>
-
-  <header>
-    <a class="logo-wrap" href="#">
-      <img src="FreeSample-Vectorizer-io-Gemini_Generated_Image_fqni5wfqni5wfqni.svg" alt="Puga Labs logo" />
-      <span class="logo-wordmark">Puga<span>Labs</span></span>
-    </a>
-    <nav>
-      <a href="mailto:hello@pugalabs.lt">hello@pugalabs.lt</a>
-    </nav>
-  </header>
-
-  <main>
-    <div class="card">
-
-      <div class="badge">We&rsquo;re almost ready</div>
-
-      <h1>Launching Soon</h1>
-
-      <p class="tagline">Puga Labs: Building smart tools for a better web.<br>Something exciting is on its way.</p>
-
-      <div class="divider"></div>
-
-      <div class="countdown">
-        <div class="countdown-block">
-          <span class="countdown-number" id="days">00</span>
-          <span class="countdown-label">Days</span>
-        </div>
-        <span class="countdown-sep">:</span>
-        <div class="countdown-block">
-          <span class="countdown-number" id="hours">00</span>
-          <span class="countdown-label">Hours</span>
-        </div>
-        <span class="countdown-sep">:</span>
-        <div class="countdown-block">
-          <span class="countdown-number" id="minutes">00</span>
-          <span class="countdown-label">Min</span>
-        </div>
-        <span class="countdown-sep">:</span>
-        <div class="countdown-block">
-          <span class="countdown-number" id="seconds">00</span>
-          <span class="countdown-label">Sec</span>
-        </div>
-      </div>
-
-      <div class="form-section">
-        <p class="form-title">Be the first to know when we launch</p>
-        <form class="notify-form" onsubmit="return false;">
-          <input type="email" placeholder="your@email.com" aria-label="Email address" />
-          <button type="submit">Get Early Access</button>
-        </form>
-      </div>
-
-    </div>
-  </main>
-
-  <footer>
-    &copy; 2026 Puga Labs &nbsp;&bull;&nbsp;
-    <a href="https://pugalabs.lt">pugalabs.lt</a>
-  </footer>
-
-  <script>
-    var launch = new Date('2026-09-01T00:00:00').getTime();
-    function pad(n){ return String(n).padStart(2,'0'); }
-    function tick(){
-      var diff = Math.max(0, launch - Date.now());
-      document.getElementById('days').textContent    = pad(Math.floor(diff/86400000));
-      document.getElementById('hours').textContent   = pad(Math.floor((diff%86400000)/3600000));
-      document.getElementById('minutes').textContent = pad(Math.floor((diff%3600000)/60000));
-      document.getElementById('seconds').textContent = pad(Math.floor((diff%60000)/1000));
-    }
-    tick(); setInterval(tick, 1000);
-  </script>
-
-</body>
-</html>
+  </body>
+</html>html>
+      </script>
+    </footer></h1>
+    </main></span>
+      </header>
+  </body>
+    </style></title>
+  </head>
